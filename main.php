@@ -127,12 +127,6 @@ function Error ($msg) {
 function InitDB($db="") {
     $parts=explode("-",$db); $db=$parts[0]; if (isset($parts[1])) {$host=$parts[1];} else {$host=$GLOBALS['dbhost'];}
     if ($db=="") {$db=$GLOBALS['dbname'];}  $user=$GLOBALS['dbuser']; $pass=$GLOBALS['dbpassword'];
-    /*проброс для кабінету на КЖРЕП*/if ($GLOBALS['bingo_host']=="vps3" && $db=="bingobalance_chugkgrep") {$host="10.10.10.11";$user="select";$pass="select";}
-    /*проброс для кабінету на ЧугТепло*/if ($GLOBALS['bingo_host']=="vps3" && $db=="bingobalance_chugteplo") {$host="10.10.10.11";$user="select";$pass="select";}
-    /*проброс для кабінету на ЧКК*/if ($GLOBALS['bingo_host']=="vps3" && $db=="bingobalance_chugkomplex") {$host="10.10.10.11";$user="select";$pass="select";}
-    //*проброс для кабінету на ЧугКОДІС*/if ($GLOBALS['bingo_host']=="vps3" && $db=="kodis_churada") {$host="10.10.10.1:49153";$user="select";$pass="select";}
-    /*проброс для кабінету на ЧугКОДІС*/if ($GLOBALS['bingo_host']=="vps3" && $db=="kodis_churada") {$host="10.10.10.1";$user="select";$pass="select";}
-    if ($host=="10.10.10.13") {$user="news";$pass="SFVL9evwDbKn";}
     @ $mysqli = new mysqli($host, $user, $pass, $db);
     if (mysqli_connect_errno()) {
         Error("Невозможно подключиться к базе данных. Код ошибки:".mysqli_connect_error());
